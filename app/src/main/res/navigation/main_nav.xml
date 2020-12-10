@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/createhabit">
+    <fragment
+        android:id="@+id/createhabit"
+        android:name="in.thelosergeek.consistencytracker.ui.createhabit"
+        android:label="Create Habit"
+        tools:layout="@layout/fragment_createhabit" >
+        <action
+            android:id="@+id/action_createhabit_to_consistentFragment"
+            app:destination="@id/consistentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHbait"
+        android:name="in.thelosergeek.consistencytracker.ui.updateHbait"
+        android:label="Update Habit"
+        tools:layout="@layout/fragment_update_hbait" >
+        <action
+            android:id="@+id/action_updateHbait_to_consistentFragment"
+            app:destination="@id/consistentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/consistentFragment"
+        android:name="in.thelosergeek.consistencytracker.ui.ConsistentFragment"
+        android:label="Consitent Habit"
+        tools:layout="@layout/fragment_consistent" >
+        <action
+            android:id="@+id/action_consistentFragment_to_createhabit"
+            app:destination="@id/createhabit" />
+        <action
+            android:id="@+id/action_consistentFragment_to_updateHbait"
+            app:destination="@id/updateHbait" />
+    </fragment>
+</navigation>
