@@ -3,28 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/createhabit">
-    <fragment
-        android:id="@+id/createhabit"
-        android:name="in.thelosergeek.consistencytracker.ui.createhabit"
-        android:label="Create Habit"
-        tools:layout="@layout/fragment_createhabit" >
-        <action
-            android:id="@+id/action_createhabit_to_consistentFragment"
-            app:destination="@id/consistentFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateHbait"
-        android:name="in.thelosergeek.consistencytracker.ui.updateHbait"
-        android:label="Update Habit"
-        tools:layout="@layout/fragment_update_hbait" >
-        <action
-            android:id="@+id/action_updateHbait_to_consistentFragment"
-            app:destination="@id/consistentFragment" />
-    </fragment>
+    app:startDestination="@id/consistentFragment">
     <fragment
         android:id="@+id/consistentFragment"
-        android:name="in.thelosergeek.consistencytracker.ui.ConsistentFragment"
+        android:name="in.thelosergeek.consistencytracker.ui.fragments.ConsistentFragment"
         android:label="Consitent Habit"
         tools:layout="@layout/fragment_consistent" >
         <action
@@ -34,4 +16,26 @@
             android:id="@+id/action_consistentFragment_to_updateHbait"
             app:destination="@id/updateHbait" />
     </fragment>
+    <fragment
+        android:id="@+id/createhabit"
+        android:name="in.thelosergeek.consistencytracker.ui.fragments.createhabit"
+        android:label="Create Habit"
+        tools:layout="@layout/fragment_createhabit" >
+        <action
+            android:id="@+id/action_createhabit_to_consistentFragment"
+            app:destination="@id/consistentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHbait"
+        android:name="in.thelosergeek.consistencytracker.ui.fragments.updateHbait"
+        android:label="Update Habit"
+        tools:layout="@layout/fragment_update_hbait" >
+        <action
+            android:id="@+id/action_updateHbait_to_consistentFragment"
+            app:destination="@id/consistentFragment" />
+        <argument
+            android:name="selecthabit"
+            app:argType="in.thelosergeek.consistencytracker.data.models.Habit" />
+    </fragment>
+
 </navigation>

@@ -8,8 +8,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
+@InternalCoroutinesApi
 class HabitViewModel (application: Application): AndroidViewModel(application){
     private val repository: HabitRepository
     val getAllHabits: LiveData<List<Habit>>
@@ -35,7 +37,7 @@ class HabitViewModel (application: Application): AndroidViewModel(application){
             repository.DeleteHabit(habit)
         }
     }
-    fun deleteAllHabits(habit: Habit){
+    fun deleteAllHabits(){
         viewModelScope.launch (Dispatchers.IO){
             repository.DeleteAllHabit()
         }
